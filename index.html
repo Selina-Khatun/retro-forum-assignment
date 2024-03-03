@@ -15,24 +15,62 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-            this is navbar
-        </nav>
+    <header class="max-w-7xl mx-auto">
+        <div class="navbar flex justify-between ">
+            <div class="flex-1 ">
+                <a class="btn btn-ghost text-xl"><img src="./images/logo.png" alt=""></a>
+            </div>
+            <div class=" mr-0 lg:w-[35%] ">
+                <ul class="menu menu-horizontal px-1">
+                    <li  data-tip="Home" class="mr-5 tooltip tooltip-bottom tooltip-info "><a class="bg-[#12132D08] py-[32%] border-2 rounded-full border-[#0307121A]"><i
+                                class="fa-solid fa-house"></i></a></li>
+                    <li data-tip="Edit" class="mr-5 tooltip tooltip-bottom tooltip-info"><a class="bg-[#12132D08] py-[32%] border-2 rounded-full border-[#0307121A]"><i
+                                class="fa-solid fa-pen"></i></a></li>
+                    <li data-tip="Add" class="mr-5 tooltip tooltip-bottom tooltip-info"><a class="bg-[#12132D08] py-[32%] border-2 rounded-full border-[#0307121A]"><i
+                                class="fa-solid fa-user-plus"></i></a></li>
+                    <li data-tip="Brand" class="mr-5 tooltip tooltip-bottom tooltip-info"><a class="bg-[#12132D08] py-[32%] border-2 rounded-full border-[#0307121A]"><i
+                                class="fa-brands fa-font-awesome"></i></a></li>
+
+                </ul>
+                <button class="btn btn-info border-none text-white font-semibold text-base px-[8%] bg-[#797DFC] rounded-full">Sign In</button>
+                
+
+               
+            </div>
+        </div>
     </header>
     <main>
+        <div class="relative flex w-full gap-2 md:w-max">
+            <div class="relative h-10 w-full min-w-[288px]">
+                <input type="search"
+                    class="peer h-full w-full rounded-[7px] border  border-t-transparent bg-transparent px-3 py-2.5 pr-20 font-sans text-sm font-normal   outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-white focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+                    placeholder="Search here anything " />
+                <label
+                    class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight  transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-white before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-white after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-white peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-white peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-white peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                    Type here...
+                </label>
+            </div>
+            <button
+                class="!absolute right-1 top-1 select-none rounded  py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 shadow-md shadow-blue-gray-500/10 transition-all hover:shadow-lg hover:shadow-blue-gray-500/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                type="button">
+                Search
+            </button>
+        </div>
         <section class="container mx-auto">
-            <div class="hero text-white bg-[#12132D] rounded-3xl">
+            <div class="hero bg-[#12132D] rounded-3xl">
                 <div class="hero-content flex-col lg:flex-row-reverse  ">
-                  <img src="./images/joinforum.png" class=" rounded-lg shadow-2xl " alt=""/>
-                  <div class="p-[7%] ">
-                    <h1 class="text-4xl font-bold">Join Our Forum</h1>
-                    <p class="py-6  text-[#FFFFFFCC]">Share your favorite opinion and win and wp forum coffee mug! Yes, you can 
-                        run unit tests and view the results directly within the app. </p>
-                    <button class="btn btn-info border-none text-white font-semibold text-base px-[8%] bg-[#797DFC] rounded-full">Registered Now</button>
-                  </div>
+                    <img src="./images/joinforum.png" class=" rounded-lg shadow-2xl " alt="" />
+                    <div class="p-[7%] ">
+                        <h1 class="text-4xl font-bold">Join Our Forum</h1>
+                        <p class="py-6  text-[#FFFFFFCC]">Share your favorite opinion and win and wp forum coffee mug!
+                            Yes, you can
+                            run unit tests and view the results directly within the app. </p>
+                        <button
+                            class="btn btn-info border-none text-white font-semibold text-base px-[8%] bg-[#797DFC] rounded-full">Registered
+                            Now</button>
+                    </div>
                 </div>
-              </div>
+            </div>
         </section>
     </main>
 
@@ -43,23 +81,23 @@
             <p>Share your favorite opinion and win and wp forum coffee mug! Yes, you can <br>
                 run unit tests and view the results directly within the app.</p>
         </aside>
-        <nav >
+        <nav>
             <div class="grid grid-flow-col gap-4 ">
-                
-              <a><i class="fa-brands text-2xl  fa-youtube"></i></a> 
-              <a><i class="fa-brands text-2xl  fa-instagram"></i></a> 
-              <a><i class="fa-brands text-2xl  fa-twitter"></i></a> 
-              <a><i class="fa-brands text-2xl  fa-github"></i></a> 
-              <a><i class="fa-brands text-2xl  fa-facebook"></i></a> 
-            
-               
-                
+
+                <a><i class="fa-brands text-2xl  fa-youtube"></i></a>
+                <a><i class="fa-brands text-2xl  fa-instagram"></i></a>
+                <a><i class="fa-brands text-2xl  fa-twitter"></i></a>
+                <a><i class="fa-brands text-2xl  fa-github"></i></a>
+                <a><i class="fa-brands text-2xl  fa-facebook"></i></a>
+
+
+
             </div>
         </nav>
-        <hr class="border-1 w-full"> 
+        <hr class="border-1 w-full">
         <!-- <div class="border-2 "></div> -->
         <p>2017, All Rights Reserved.</p>
-    
+
     </footer>
 
 </body>
