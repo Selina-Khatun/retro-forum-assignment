@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RETRO FORUM</title>
+    <!-- daisyUi & tailwindcss -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- fontAwesome -->
+    <script src="https://kit.fontawesome.com/8acf9ee4cf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styles/style.css">
+
 </head>
+
 <body>
     <header>
         <nav>
@@ -12,6 +21,33 @@
         </nav>
     </header>
     <main></main>
-    <footer></footer>
+
+    <footer class="footer footer-center p-5 mb-0  text-black">
+        <aside>
+            <img src="./images/logo.png" alt="">
+
+            <p>Share your favorite opinion and win and wp forum coffee mug! Yes, you can <br>
+                run unit tests and view the results directly within the app.</p>
+        </aside>
+        <nav >
+            <div class="grid grid-flow-col gap-4 ">
+                
+              <a><i class="fa-brands text-2xl  fa-youtube"></i></a> 
+              <a><i class="fa-brands text-2xl  fa-instagram"></i></a> 
+              <a><i class="fa-brands text-2xl  fa-twitter"></i></a> 
+              <a><i class="fa-brands text-2xl  fa-github"></i></a> 
+              <a><i class="fa-brands text-2xl  fa-facebook"></i></a> 
+            
+               
+                
+            </div>
+        </nav>
+        <hr class="border-1 w-full"> 
+        <!-- <div class="border-2 "></div> -->
+        <p>2017, All Rights Reserved.</p>
+    
+    </footer>
+
 </body>
+
 </html>
