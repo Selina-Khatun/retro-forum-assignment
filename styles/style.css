@@ -1,7 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.banner{
+    background-image: url('../images/bgbanner.png'),url('../images/bgbanner.png'),url('../images/bgbanner.png');
+    background-repeat: no-repeat,no-repeat,no-repeat;
+    background-size: cover,cover,cover ;
+    background-position:bottom 0% left 0% ;
 
+}
+.transition{
+    transition: all .2s ease-out;
+}
+
+.h-60{
+  height: 14rem;
+}
+
+.w-128{
+  width: 32rem;
+}
 footer{
     background: linear-gradient(180.00deg, rgba(18, 19, 45, 0.05),rgba(18, 19, 45, 0) 100%);
 }
@@ -12,7 +29,7 @@ footer{
     height: 120%;
     border-radius: 100%;
   }
-  
+ 
   .glow-1 {
     animation: glow1 4s linear infinite;
   }
