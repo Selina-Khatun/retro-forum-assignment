@@ -1,14 +1,13 @@
-
 let allPosts;
 const loadAllPosts = async () => {
   const res = await fetch(
-    ` https://openapi.programming-hero.com/api/retro-forum/posts`
+    ` https://openapi.programming-hero.com/api/retro-forum/posts`,
   );
 
   if (res.ok) {
     const data = await res.json();
     // console.log(data);
-     allPosts = data.posts;
+    allPosts = data.posts;
     if (Array.isArray(allPosts)) {
       // console.log( allPosts);
       displayAllPosts(allPosts);
@@ -25,13 +24,13 @@ const loadAllPosts = async () => {
 
 const loadPosts = async (searchText) => {
   const res = await fetch(
-    `https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchText}`
+    `https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchText}`,
   );
 
   if (res.ok) {
     const data = await res.json();
     // console.log(data);
-     allPosts = data.posts;
+    allPosts = data.posts;
     if (Array.isArray(allPosts)) {
       // console.log( allPosts);
       displayAllPosts(allPosts);
@@ -49,10 +48,10 @@ const loadPosts = async (searchText) => {
 const displayAllPosts = (allPosts) => {
   // console.log(allPosts);
   const allPostContainer = document.getElementById("allPostContainer");
-  allPostContainer.textContent='';
+  allPostContainer.textContent = "";
   allPosts.forEach((post) => {
     // console.log(post);
-    handleButtonClick(post);
+
     const postCard = document.createElement("div");
     postCard.classList = `flex flex-col justify-center py-5`;
     postCard.innerHTML = ` <div
@@ -90,7 +89,9 @@ const displayAllPosts = (allPosts) => {
                 <p>${post.posted_time} min</p>
             </div>
             <div class=''>
-                <button onclick="handleButtonClick()" class="text-green-500 text-3xl "><i class="fa-solid fa-envelope-open-text"></i></button>
+                <button onclick="handleButtonClick('${post.view_count}','${
+      post.title
+    }')" class="text-green-500 text-3xl "><i class="fa-solid fa-envelope-open-text"></i></button>
             </div>
         </div>
 
@@ -100,41 +101,44 @@ const displayAllPosts = (allPosts) => {
   });
   loadingSpinner(false);
 };
- 
-const handleButtonClick=(post)=>{
 
-  const markAsContainer=document.getElementById('markAsContainer')
-  markAsContainer.innerHTML = '';
-const markAsCard=document.createElement('div');
-markAsCard.classList=`border-2  w-[35%] bg-gray-100 rounded-2xl`;
-markAsCard.innerHTML=`
-<div class="flex justify-between p-5">
-  <h5>Title</h5>
-  <p><i class="fa-solid text-green-500 mr-2 fa-check-double"></i> Mark as read (<span>4</span>)
-  </p>
 
-</div>
 
-<div class=" flex justify-between w-[90%] shadow-2xl  mx-auto  bg-white rounded-2xl m-4 ">
+
+
+//******************* */ button handler*********************
+let counter = 0;
+const handleButtonClick = (viewCount, title) => {
+  console.log(viewCount, title);
+
+  const markAsContainer = document.getElementById("markAsContainer");
+  const markAsCard = document.createElement("div");
+  markAsCard.classList = ` `;
+  markAsCard.innerHTML = `
+
+
+<div class=" flex justify-between w-[90%] shadow-2xl p-5  mx-auto  bg-white rounded-2xl m-4 ">
   <div class="w-[70%]">
-      <h3 class="font-medium  border-2 text-gray-800  text-xl">{title}
-
+  <h3 class="font-medium  text-gray-800 text-xl">${title}</h3>
+ 
   </div>
-  <div class="inline-flex w-[30%] justify-end border-2">
+  <div class="inline-flex w-[30%] justify-end ">
       <i class="fa-regular text-xl  ml-4 fa-eye"></i>
-      <p>{view_count}</p>
+      <p>${viewCount}</p>
   </div>
 </div>
 `;
-markAsContainer.appendChild(markAsCard);
-  
+
+  markAsContainer.appendChild(markAsCard);
+  counter++;
+  document.getElementById('selectedItem').textContent = counter;
 };
 
 // LatestPosts section starts from here
 
 const loadLatestPosts = async () => {
   const res = await fetch(
-    "https://openapi.programming-hero.com/api/retro-forum/latest-posts"
+    "https://openapi.programming-hero.com/api/retro-forum/latest-posts",
   );
 
   if (res.ok) {
@@ -166,7 +170,7 @@ const displayLatestPosts = (data) => {
 <div class="max-w-6xl mx-auto">
 <div class="flex items-center justify-center">
     <div class="max-w-sm w-full sm:w-full lg:w-full py-6 px-3">
-        <div class="bg-white border-2 rounded-lg overflow-hidden">
+        <div class="bg-white rounded-lg overflow-hidden">
             <figure class="px-6 pt-6">
                 <img src="${latestPost.cover_image}"
                     alt="Shoes" class="rounded-xl" />
@@ -176,19 +180,21 @@ const displayLatestPosts = (data) => {
                 <div class="flex py-4  text-gray-700">
                     <div class="flex-1 inline-flex gap-3 items-center">
                         <i class="fa-regular fa-calendar"></i>
-                        <p>${latestPost.author.posted_date?latestPost.author.posted_date:'No publish date'
+                        <p>${
+                          latestPost.author.posted_date
+                            ? latestPost.author.posted_date
+                            : "No publish date"
                         } </p>
 
                     </div>
 
                 </div>
                 <p class="font-bold text-lg py-2">${latestPost.title}</p>
-                <p>${latestPost.description
-                }</p>
+                <p>${latestPost.description}</p>
                 <div class=" pt-3 pb-4   ">
                     <div class="text-xs uppercase font-bold text-gray-600 tracking-wide"></div>
                     <div class="flex items-center">
-                        <div class="flex-shrink-0 border-2 rounded-full">
+                        <div class="flex-shrink-0  rounded-full">
                             <img class="w-8 h-8 rounded-full"
                                 src="${latestPost.profile_image}"
                                 alt="${latestPost.author.name}">
@@ -199,7 +205,11 @@ const displayLatestPosts = (data) => {
                         </p>
                         <p class="text-sm text-gray-500 truncate dark:text-gray-400">
                       
-                        ${latestPost.author.designation ? latestPost.author.designation : 'Unknown'}
+                        ${
+                          latestPost.author.designation
+                            ? latestPost.author.designation
+                            : "Unknown"
+                        }
                         </p>
                     </div>
 
@@ -211,29 +221,28 @@ const displayLatestPosts = (data) => {
 </div>
 </div>
 `;
-LatestPostsContainer.appendChild(latestCard);
+    LatestPostsContainer.appendChild(latestCard);
   });
 };
 
 const handleSearch = (event) => {
-  event.preventDefault(); 
-  console.log('searched');
+  event.preventDefault();
+  console.log("searched");
   loadingSpinner(true);
-  const searchField = document.getElementById('searchField');
+  const searchField = document.getElementById("searchField");
   const searchText = searchField.value;
   // console.log(searchText);
   loadPosts(searchText);
-  searchField.value = '';
-}
+  searchField.value = "";
+};
 
-const loadingSpinner=(isLoading)=>{
-  const toggleLoadingSpinner=document.getElementById('loading-spinner')
-  if(isLoading){
-    toggleLoadingSpinner.classList.remove('hidden')
+const loadingSpinner = (isLoading) => {
+  const toggleLoadingSpinner = document.getElementById("loading-spinner");
+  if (isLoading) {
+    toggleLoadingSpinner.classList.remove("hidden");
+  } else {
+    toggleLoadingSpinner.classList.add("hidden");
   }
-  else{
-    toggleLoadingSpinner.classList.add('hidden');
-  }
-}
+};
 loadAllPosts();
 loadLatestPosts();

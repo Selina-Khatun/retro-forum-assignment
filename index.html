@@ -14,30 +14,34 @@
 
 </head>
 
-<body>
+<body >
     <header class="max-w-7xl mx-auto">
-        <div class="navbar flex justify-between p-6 ">
-            <div class="flex-1 ">
+        <div class="navbar flex flex-col lg:flex-row justify-between p-6 ">
+            <div class="flex-1 flex w-[99%] mx-auto justify-between ">
                 <a class="btn btn-ghost text-xl"><img src="./images/logo.png" alt=""></a>
+                <button
+                class="btn btn-info border-none lg:hidden block text-white font-semibold text-base px-[8%] bg-[#797DFC] rounded-full">Sign
+                In</button>
             </div>
-            <div class=" mr-0 lg:w-[35%] ">
-                <ul class="menu menu-horizontal px-1">
-                    <li data-tip="Home" class="mr-5 tooltip tooltip-bottom tooltip-info "><a
-                            class="bg-[#12132D08] py-[32%] border-2 rounded-full border-[#0307121A]"><i
+
+            <div class=" mr-0 lg:w-[35%]  ">
+                <ul class="menu menu-horizontal w-full mx-auto gap-5 lg:gap-0 inline-flex px-1">
+                    <li data-tip="Home" class="md:mr-5 tooltip tooltip-bottom tooltip-info "><a
+                            class="bg-[#12132D08] md:py-[32%] border-2 rounded-full border-[#0307121A]"><i
                                 class="fa-solid fa-house"></i></a></li>
-                    <li data-tip="Edit" class="mr-5 tooltip tooltip-bottom tooltip-info"><a
-                            class="bg-[#12132D08] py-[32%] border-2 rounded-full border-[#0307121A]"><i
+                    <li data-tip="Edit" class="md:mr-5 tooltip tooltip-bottom tooltip-info"><a
+                            class="bg-[#12132D08] md:py-[32%] border-2 rounded-full border-[#0307121A]"><i
                                 class="fa-solid fa-pen"></i></a></li>
-                    <li data-tip="Add" class="mr-5 tooltip tooltip-bottom tooltip-info"><a
-                            class="bg-[#12132D08] py-[32%] border-2 rounded-full border-[#0307121A]"><i
+                    <li data-tip="Add" class="md:mr-5 tooltip tooltip-bottom tooltip-info"><a
+                            class="bg-[#12132D08] md:py-[32%] border-2 rounded-full border-[#0307121A]"><i
                                 class="fa-solid fa-user-plus"></i></a></li>
-                    <li data-tip="Brand" class="mr-5 tooltip tooltip-bottom tooltip-info"><a
-                            class="bg-[#12132D08] py-[32%] border-2 rounded-full border-[#0307121A]"><i
+                    <li data-tip="Brand" class="md:mr-5 tooltip tooltip-bottom tooltip-info"><a
+                            class="bg-[#12132D08] md:py-[32%] border-2 rounded-full border-[#0307121A]"><i
                                 class="fa-brands fa-font-awesome"></i></a></li>
 
                 </ul>
                 <button
-                    class="btn btn-info border-none text-white font-semibold text-base px-[8%] bg-[#797DFC] rounded-full">Sign
+                    class="btn btn-info border-none hidden lg:block text-white font-semibold text-base px-[8%] bg-[#797DFC] rounded-full">Sign
                     In</button>
 
 
@@ -57,7 +61,7 @@
                             Forum
                         </h1>
                         <p class="py-6">Share your favorite opinion and win and wp forum coffee mug!</p>
-                        <div class="  flex flex-col justify-center">
+                        <div class="  flex flex-col justify-center w-[95%] mx-auto lg:w-full">
                             <div class="relative w-full sm:max-w-xl sm:mx-auto">
                                 <div class="overflow-hidden z-0 rounded-full relative p-3">
                                     <form role="" class="relative flex z-50 bg-white rounded-full">
@@ -124,7 +128,7 @@
     </div>
     <main class="max-w-7xl mx-auto">
         <!-- Discuss section starts from here-->
-        <section class="my-[5%] border-2 container mx-auto">
+        <section class="my-[5%]  container mx-auto">
             <span id="loading-spinner" class="loading loading-spinner text-center loading-lg hidden"></span>
             <div class="text-center ">
                 <h1 class="text-4xl font-bold">Let’s Discuss</h1>
@@ -132,29 +136,33 @@
                     integrated testing features allow for a streamlined . </p>
             </div>
 
-            <div class="flex   ">
-                <div id="allPostContainer" class=" mr-auto  w-[63%] border-2">
+            <div class="flex  lg:flex-row flex-col ">
+                <div id="allPostContainer" class=" lg:mr-auto  lg:w-[63%]">
                     <!--  all posts cards are shown  dynamically -->
 
                 </div>
 
-                <div id="markAsContainer" class="border-2  w-[35%] bg-gray-100 rounded-2xl">
+                <div  class=" w-full lg:w-[35%] bg-gray-100 rounded-2xl">
                     <div class="flex justify-between p-5">
                         <h5>Title</h5>
-                        <p><i class="fa-solid text-green-500 mr-2 fa-check-double"></i> Mark as read (<span>4</span>)
+                        <p><i class="fa-solid text-green-500 mr-2 fa-check-double"></i> Mark as read (<span id="selectedItem" class="selectedItem">0</span>)
                         </p>
 
                     </div>
 
-                    <div class=" flex justify-between w-[90%] shadow-2xl  mx-auto  bg-white rounded-2xl m-4 ">
-                        <div class="w-[70%]">
-                            <h3 class="font-medium  border-2 text-gray-800  text-xl">${post.title}
+                    <div id="markAsContainer" class="">
 
-                        </div>
-                        <div class="inline-flex w-[30%] justify-end border-2">
-                            <i class="fa-regular text-xl  ml-4 fa-eye"></i>
-                            <p>${post.view_count}</p>
-                        </div>
+                        <!-- <div class=" flex justify-between w-[90%] shadow-2xl  mx-auto  bg-white rounded-2xl m-4 ">
+                            <div class="w-[70%]">
+                                <h3 class="font-medium  border-2 text-gray-800  text-xl">${post.title}
+    
+                            </div>
+                            <div class="inline-flex w-[30%] justify-end border-2">
+                                <i class="fa-regular text-xl  ml-4 fa-eye"></i>
+                                <p>${post.view_count}</p>
+                            </div>
+                        </div> -->
+
                     </div>
                 </div>
             </div>
