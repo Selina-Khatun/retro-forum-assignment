@@ -60,9 +60,9 @@
                             <div class="relative w-full sm:max-w-xl sm:mx-auto">
                                 <div class="overflow-hidden z-0 rounded-full relative p-3">
                                     <form role="" class="relative flex z-50 bg-white rounded-full">
-                                        <input type="text" placeholder="Search here anything"
+                                        <input id="searchField" type="text" placeholder="Search here anything"
                                             class="rounded-full flex-1 px-6 py-4 text-gray-700 focus:outline-none">
-                                        <button
+                                        <button onclick="handleSearch(event)"
                                             class="bg-indigo-500 text-white rounded-full font-semibold px-8 py-4 hover:bg-indigo-400 focus:bg-indigo-600 focus:outline-none">Search</button>
                                     </form>
                                     <div class="glow glow-1 z-10 bg-pink-400 absolute"></div>
@@ -119,18 +119,40 @@
             </div>
         </section>
     </header>
-    <main>
+    <main class="max-w-7xl mx-auto">
         <!-- Discuss section starts from here-->
-        <section class="my-[5%]">
+        <section class="my-[5%] border-2 container mx-auto">
             <div class="text-center ">
                 <h1 class="text-4xl font-bold">Let’s Discuss</h1>
                 <p class="py-6 ">Yes, you can run unit tests and view the results directly within the app. The <br>
                     integrated testing features allow for a streamlined . </p>
             </div>
 
-            <div id="allPostContainer">
+            <div class="flex   ">
+                <div id="allPostContainer" class=" mr-auto  w-[63%] border-2">
+                    <!--  all posts cards are shown  dynamically -->
 
+                </div>
 
+                <div id="markAsContainer" class="border-2  w-[35%] bg-gray-100 rounded-2xl">
+                    <div class="flex justify-between p-5">
+                        <h5>Title</h5>
+                        <p><i class="fa-solid text-green-500 mr-2 fa-check-double"></i> Mark as read (<span>4</span>)
+                        </p>
+
+                    </div>
+
+                    <div class=" flex justify-between w-[90%] shadow-2xl  mx-auto  bg-white rounded-2xl m-4 ">
+                        <div class="w-[70%]">
+                            <h3 class="font-medium  border-2 text-gray-800  text-xl">${post.title}
+
+                        </div>
+                        <div class="inline-flex w-[30%] justify-end border-2">
+                            <i class="fa-regular text-xl  ml-4 fa-eye"></i>
+                            <p>${post.view_count}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </section>
@@ -161,10 +183,11 @@
             </div>
 
             <div id="LatestPostsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 container mx-auto">
-                
+
             </div>
         </section>
     </main>
+
     <!-- footer section starts from here -->
     <footer class="footer footer-center p-5 mb-0  text-black">
         <aside>
@@ -181,7 +204,6 @@
                 <a><i class="fa-brands text-2xl  fa-twitter"></i></a>
                 <a><i class="fa-brands text-2xl  fa-github"></i></a>
                 <a><i class="fa-brands text-2xl  fa-facebook"></i></a>
-
 
 
             </div>
