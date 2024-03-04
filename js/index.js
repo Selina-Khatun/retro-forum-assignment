@@ -98,6 +98,7 @@ const displayAllPosts = (allPosts) => {
     </div>`;
     allPostContainer.appendChild(postCard);
   });
+  loadingSpinner(false);
 };
  
 const handleButtonClick=(post)=>{
@@ -217,6 +218,7 @@ LatestPostsContainer.appendChild(latestCard);
 const handleSearch = (event) => {
   event.preventDefault(); 
   console.log('searched');
+  loadingSpinner(true);
   const searchField = document.getElementById('searchField');
   const searchText = searchField.value;
   // console.log(searchText);
@@ -224,5 +226,14 @@ const handleSearch = (event) => {
   searchField.value = '';
 }
 
+const loadingSpinner=(isLoading)=>{
+  const toggleLoadingSpinner=document.getElementById('loading-spinner')
+  if(isLoading){
+    toggleLoadingSpinner.classList.remove('hidden')
+  }
+  else{
+    toggleLoadingSpinner.classList.add('hidden');
+  }
+}
 loadAllPosts();
 loadLatestPosts();
